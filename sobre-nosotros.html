@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Sobre Otter Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      color: #111;
+    }
+
+    /* HEADER */
+    .header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #000;
+      z-index: 1000;
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .header-content {
+      display: grid;
+      grid-template-columns: 1fr auto 2fr;
+      align-items: center;
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #fff;
+      text-decoration: none;
+      justify-self: center;
+    }
+    .logo-circle {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo-circle img { 
+      width: 38px; 
+      height: 38px; 
+      object-fit: contain; 
+      border-radius: 50%;
+    }
+    .brand-text { 
+      font-size: 1.2rem; 
+      font-weight: 600; 
+      letter-spacing: 1px; 
+    }
+    .nav {
+      grid-column: 3;
+      justify-self: end;
+    }
+
+    .nav a { 
+      margin-left: 30px; 
+      color: #fff; 
+      text-decoration: none; 
+      opacity: 0.8; 
+      transition: opacity 0.3s ease; 
+      position: relative;
+    }
+    .nav a:hover { 
+      opacity: 1; 
+    }
+    .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: #fff;
+      transition: width 0.3s ease;
+    }
+
+    .nav a:hover::after {
+      width: 100%;
+    }
+
+    .menu-toggle { 
+      display: none; 
+      font-size: 1.8rem; 
+      color: #fff; 
+      cursor: pointer; 
+    }
+
+    @media(max-width:768px){
+      .header-content { grid-template-columns: auto 1fr auto; }
+      .nav { position: fixed; top:70px; left:0; width:100%; background:#000; flex-direction:column; align-items:center; display:none; padding:30px 0; }
+      .nav.active { display:flex; }
+      .nav a { margin:15px 0; }
+      .menu-toggle { display:block; }
+    }
+
+    /* HERO */
+    .page-hero {
+      padding: 160px 0 100px;
+      text-align: center;
+      background: #111;
+      color: #fff;
+    }
+    .page-hero h1 { font-size: 3rem; margin-bottom: 20px; }
+    .page-hero p { max-width: 700px; margin: auto; font-size: 1.1rem; color: #ccc; }
+
+    /* SECCIONES */
+    .content-section { padding: 80px 0; width: 90%; max-width: 1200px; margin: auto; }
+    .content-section h2 { font-size: 2rem; margin-bottom: 20px; }
+    .content-section p { font-size: 1rem; line-height: 1.7; color: #444; max-width: 900px; }
+
+    /* STAFF GRID */
+    .staff-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .staff-card {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 25px 15px;
+      border-radius: 8px;
+
+      position: relative;
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 28px 18px;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+
+      transition:
+        transform 0.45s ease,
+        box-shadow 0.45s ease;
+    }
+    .staff-card h4 { font-size: 1.1rem; margin-bottom: 5px; }
+    .staff-card span { font-size: 0.85rem; color: #ffffff; display:block; margin-bottom:10px; }
+    .staff-socials a { margin:0 5px; text-decoration:none; color:#fff; opacity:0.7; transition:opacity 0.3s ease; font-size:0.85rem; }
+    .staff-socials a:hover { opacity:1; }
+
+    /* RESPONSIVE */
+    @media(max-width:768px){
+      .page-hero { padding-top:140px; }
+    }
+    .staff-card {
+      position: relative;
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 25px 15px;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .staff-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    }
+    .staff-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        circle at top,
+        rgba(255,255,255,0.08),
+        transparent 60%
+      );
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .staff-card:hover::before {
+      opacity: 1;
+    }
+    .staff-card img {
+      transition: transform 0.5s ease;
+    }
+
+    .staff-card:hover img {
+      transform: scale(1.08);
+    }
+    /* Overlay */
+    .staff-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        rgba(0,0,0,0.85),
+        rgba(0,0,0,0.95)
+      );
+      color: #fff;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      opacity: 0;
+      transform: translateY(20px);
+      transition:
+        opacity 0.45s ease,
+        transform 0.45s ease;
+    }
+
+
+    .staff-card:hover .staff-overlay {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .staff-overlay p {
+      margin: 5px 0;
+    }
+
+    .staff-overlay a {
+      color: #fff;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+    .footer {
+      background: #0c0c0c;
+      color: #aaa;
+      padding: 80px 0 30px;
+    }
+
+    /* CONTENEDOR */
+    .footer-container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.2fr 2fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    /* BRAND IZQUIERDA */
+    .footer-brand p {
+      max-width: 360px;
+      line-height: 1.6;
+      margin-top: 20px;
+      font-size: 0.95rem;
+    }
+
+    /* LOGO */
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-logo img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+    }
+
+    .footer-logo span {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+
+    /* LINKS DERECHA */
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .footer-column h4 {
+      color: #fff;
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-column li {
+      margin-bottom: 12px;
+    }
+
+    .footer-column a {
+      text-decoration: none;
+      color: #aaa;
+      transition: color 0.3s ease;
+    }
+
+    .footer-column a:hover {
+      color: #ff9900;
+    }
+
+    /* COPYRIGHT */
+    .footer-bottom {
+      margin-top: 60px;
+      padding-top: 25px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #666;
+      border-top: 1px solid #222;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .footer-logo {
+        justify-content: center;
+      }
+
+      .footer-brand p {
+        margin: 20px auto 0;
+      }
+
+      .footer-links {
+        grid-template-columns: 1fr;
+        margin-top: 40px;
+      }
+      .content-section {
+        padding: 60px 0;
+      }
+      .page-hero h1 {
+        font-size: 2.2rem;
+      }
+    }
+
+    /* LOGO FOOTER IGUAL AL HEADER */
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-logo .logo-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #fff;           /* círculo blanco */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer-logo .logo-circle img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: #fff;      
+      padding: 6px;
+      border-radius: 50%;  
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    /* TEXTO */
+    .footer-logo span {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+    .content-section {
+      animation: fadeUp 0.8s ease both;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .staff-card span {
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .section-divider {
+      width: 60px;
+      height: 3px;
+      background: #111;
+      margin: 40px 0;
+    }
+    .cta-section {
+      background: #111;
+      color: #fff;
+      padding: 120px 0;
+      text-align: center;
+    }
+
+    .cta-content {
+      width: 90%;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .cta-content h2 {
+      font-size: 2.6rem;
+      margin-bottom: 25px;
+    }
+
+    .cta-content p {
+      font-size: 1.1rem;
+      color: #ccc;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    .cta-actions {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    /* BOTÓN PRINCIPAL */
+    .cta-btn {
+      background: #fff;
+      color: #111;
+      padding: 16px 40px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.35s ease;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    }
+
+    /* LINK SECUNDARIO */
+    .cta-link {
+      color: #fff;
+      font-size: 0.95rem;
+      text-decoration: none;
+      opacity: 0.7;
+      align-self: center;
+      transition: opacity 0.3s ease;
+    }
+
+    .cta-link:hover {
+      opacity: 1;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .cta-content h2 {
+        font-size: 2rem;
+      }
+    }
+    .cta-section::before {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: #fff;
+      margin: 0 auto 40px;
+    }
+    .staff-img {
+      width: 110px;
+      height: 110px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid rgba(255,255,255,0.2);
+    }
+    .staff-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .staff-card:hover .staff-img img {
+      transform: scale(1.08);
+    }
+    .staff-card:hover .staff-img {
+      border-color: #fff;
+    }
+    .staff-overlay h4 {
+      font-size: 1.2rem;
+      margin-bottom: 6px;
+    }
+
+    .overlay-role {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0.7;
+    }
+
+    .overlay-divider {
+      width: 40px;
+      height: 2px;
+      background: #fff;
+      margin: 18px 0;
+    }
+
+    .overlay-discord {
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+    /* ===== FONDO ANIMADO ELEGANTE ===== */
+    .animated-bg {
+      position: relative;
+      background: linear-gradient(
+        120deg,
+        #0b0b0b,
+        #111,
+        #0d0d0d
+      );
+      background-size: 400% 400%;
+      animation: bgFlow 14s ease infinite;
+      overflow: hidden;
+    }
+
+    @keyframes bgFlow {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+  .animated-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("images/noise.png");
+    opacity: 0.04;
+    pointer-events: none;
+  }
+
+  /* ===== CTA ===== */
+  .cta-section {
+    padding: 140px 20px;
+    text-align: center;
+    position: relative;
+  }
+
+  .cta-content {
+    max-width: 800px;
+    margin: auto;
+    color: #fff;
+  }
+
+  .cta-content h2 {
+    font-size: 2.6rem;
+    margin-bottom: 20px;
+  }
+
+  .cta-content p {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    margin-bottom: 50px;
+  }
+  .cta-buttons {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .cta-btn {
+    position: relative;
+    padding: 16px 42px;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.4s ease;
+    overflow: hidden;
+  }
+  .cta-btn.primary {
+    background: #fff;
+    color: #111;
+  }
+
+  .cta-btn.primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(255,255,255,0.25);
+  }
+  .cta-btn.secondary {
+    background: #fff;
+    color: #111;
+  }
+
+  .cta-btn.secondary:hover {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+  }
+  .cta-btn.primary::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at center,
+      rgba(255,255,255,0.4),
+      transparent 60%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .cta-btn.primary:hover::after {
+    opacity: 1;
+  }
+  .cta-btn.secondary::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at center,
+      rgba(255,255,255,0.35),
+      transparent 60%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .cta-btn.secondary:hover::after {
+    opacity: 1;
+  }
+  </style>
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="container header-content">
+      <a href="index.html" class="brand">
+        <div class="logo-circle"><img src="images/logo-otter.png" alt="Otter Studio"></div>
+        <span class="brand-text">Otter Studio</span>
+      </a>
+      <nav class="nav">
+        <a href="index.html#about">Nosotros</a>
+        <a href="index.html#projects">Proyectos</a>
+        <a href="index.html#contact">Comunidad</a>
+      </nav>
+      <div class="menu-toggle" id="menuToggle">☰</div>
+    </div>
+  </header>
+
+  <section class="page-hero animated-bg">
+    <h1>Sobre Otter Studio</h1>
+    <div class="section-divider"></div>
+    <p>Conoce quiénes somos, nuestra historia y el equipo que hace posible nuestros eventos en Minecraft.</p>
+  </section>
+
+  <section class="content-section">
+    <h2>Qué somos</h2>
+    <div class="section-divider"></div>
+    <p>En Otter Studios somos un estudio creativo dedicado a la creación de eventos y series originales para la comunidad hispanohablante de Minecraft. Nos apasiona desarrollar experiencias únicas que conecten a creadores y jugadores a través de historias, desafíos y formatos innovadores dentro del juego.</p>
+    <p>Nuestro objetivo es impulsar la creatividad, el entretenimiento y la colaboración, ofreciendo proyectos bien organizados, dinámicos y pensados especialmente para la comunidad en español. En Otter Studios trabajamos cada detalle para transformar ideas en experiencias memorables dentro del universo de Minecraft.</p>
+  </section>
+
+  <section class="content-section">
+    <h2>Nuestra historia</h2>
+    <div class="section-divider"></div>
+    <p>Otter Studios nace de la pasión por Minecraft y por crear experiencias diferentes para la comunidad hispanohablante. Todo comenzó con OMARzMOURE, creador de contenido que durante años desarrolló series y eventos en solitario, siempre buscando innovar.</p>
+    <p>El 7 de junio de 2025 decidió dar un paso más y fundar Otter Studios, inicialmente con la idea de crear un gran evento llamado World Kombat Cup, que aunque no llegó a realizarse, sentó las bases del estudio. Al mismo tiempo, OMAR trabajaba en WORLD OF CLAN 3, proyecto al que se fueron uniendo seguidores como RA078, Adrian8072, Neomar y Bando, formando el primer equipo del estudio. Más adelante se sumaron Scorpion741 y Creative (Elias) para la parte técnica, logrando que la comunidad creciera hasta unos 120 miembros.</p>
+    <p>El 27 de junio de 2025 se lanzó el primer gran proyecto, pero el servidor colapsó por la entrada masiva de jugadores, provocando pérdidas importantes dentro del equipo. Aun así, Otter no se rindió y comenzó a realizar eventos más pequeños que devolvieron la confianza de la comunidad.</p>
+    <p>Con la experiencia adquirida llegó KrakenSafio 3, un proyecto ambicioso desarrollado solo por el staff de Otter. Aunque tuvo problemas de organización y lag en su estreno, logró salir adelante y cerró con éxito, premiando incluso al ganador con una cuenta de Minecraft.</p>
+    <p>Más tarde se inició PulpoDeath, un Permadeath que terminó marcado por conflictos internos, raideos y la salida de miembros clave del staff. Muchos creyeron que Otter Studios había llegado a su fin, pero esa crisis permitió una reconstrucción total. Se formó un nuevo equipo comprometido y, en solo dos meses, la comunidad creció de 700 a más de 1020 miembros.</p>
+    <p>El estreno final de PulpoDeath rompió récords con 120 jugadores simultáneos. Aunque el proyecto terminó cerrándose por desgaste y conflictos, todo formaba parte de un plan para renovar el estudio. Otter volvió a sus raíces, recuperó su identidad y comenzó a trabajar en nuevas herramientas como su bot oficial, esta web y futuros proyectos más profesionales.</p>
+    <p>Hoy, Otter Studios sigue en pie, con más experiencia y una visión clara del futuro.</p>
+    <P>No es el final.</P>
+    <P><B>Es un nuevo comienzo.</B></P>
+  </section>
+
+  <section class="content-section">
+    <h2>Quiénes somos</h2>
+    <div class="staff-grid">
+
+      <div class="staff-card">
+        <div class="staff-img">
+          <img src="images/staff-omar.png" alt="OMARzMOURE">
+        </div>
+        <h4>OMARzMOURE</h4>
+        <span>Owner</span>
+
+        <div class="staff-overlay">
+          <h4>OMARzMOURE</h4>
+          <span class="overlay-role">Owner</span>
+          <div class="overlay-divider"></div>
+          <p class="overlay-discord">Discord: OMARzMOURE</p>
+        </div>
+        <div class="staff-socials">
+          <a href="https://www.youtube.com/channel/UCO0BJV8mQpHIq3iQ7cY4Piw" target="_blank">YouTube</a>
+        </div>  
+      </div>
+
+      <div class="staff-card">
+        <div class="staff-img">
+          <img src="images/staff-dim.png" alt="Dim">
+        </div>
+        <h4>Dim</h4>
+        <span>Co-owner</span>
+
+        <div class="staff-overlay">
+          <h4>Dim</h4>
+          <span class="overlay-role">Co-owner</span>
+          <div class="overlay-divider"></div>
+          <p class="overlay-discord">Discord: itzdimzim</p>
+        </div>
+      </div>
+
+      <div class="staff-card">
+        <div class="staff-img">
+          <img src="images\project-soon.jpg" alt="Cris">
+        </div>
+        <h4>Cris</h4>
+        <span>Co-owner</span>
+
+        <div class="staff-overlay">
+          <h4>Cris</h4>
+          <span class="overlay-role">Co-owner</span>
+          <div class="overlay-divider"></div>
+          <p class="overlay-discord">Discord: mr_joseph_</p>
+        </div>
+      </div>
+
+      <div class="staff-card">
+        <div class="staff-img">
+          <img src="images/staff-seventy.png" alt="Seventy">
+        </div>
+        <h4>Seventy</h4>
+        <span>Social Media Manager</span>
+
+        <div class="staff-overlay">
+          <h4>Seventy</h4>
+          <span class="overlay-role">Social Media Manager</span>
+          <div class="overlay-divider"></div>
+          <p class="overlay-discord">Discord: seventywelcome27</p>
+        </div>
+        <div class="staff-socials">
+          <a href="https://www.youtube.com/@WhatsUpSeventy/videos" target="_blank">YouTube</a>
+        </div> 
+      </div>
+      
+      <div class="staff-card">
+        <div class="staff-img">
+          <img src="images\project-soon.jpg" alt="Scorpion">
+        </div>
+        <h4>Scorpion</h4>
+        <span>Config</span>
+
+        <div class="staff-overlay">
+          <h4>Scorpion</h4>
+          <span class="overlay-role">Config</span>
+          <div class="overlay-divider"></div>
+          <p class="overlay-discord">Discord: scorpion741</p>
+        </div>
+      </div>
+
+      <div class="staff-card">
+        <div class="staff-img">
+          <img src="images/staff-gabriel.png" alt="Gabriel">
+        </div>
+        <h4>Gabriel</h4>
+        <span>Config · Builder</span>
+
+        <div class="staff-overlay">
+          <h4>Gabriel</h4>
+          <span class="overlay-role">Config · Builder</span>
+          <div class="overlay-divider"></div>
+          <p class="overlay-discord">Discord: g4briel73</p>
+
+        </div>
+        <div class="staff-socials">
+          <a href="https://www.youtube.com/@G4briel730" target="_blank">YouTube</a>
+        </div> 
+      </div>
+
+      <div class="staff-card">
+        <div class="staff-img">
+          <img src="images\project-soon.jpg" alt="Creeppermc">
+        </div>
+        <h4>Creeppermc</h4>
+        <span>Config</span>
+
+        <div class="staff-overlay">
+          <h4>Creeppermc</h4>
+          <span class="overlay-role">Config</span>
+          <div class="overlay-divider"></div>
+          <p class="overlay-discord">Discord: games7258</p>
+        </div>
+      </div>
+
+      <div class="staff-card">
+        <div class="staff-img">
+          <img src="images\project-soon.jpg" alt="Phoenix">
+        </div>
+        <h4>Phoenix</h4>
+        <span>Config</span>
+
+        <div class="staff-overlay">
+          <h4>Phoenix</h4>
+          <span class="overlay-role">Config</span>
+          <div class="overlay-divider"></div>
+          <p class="overlay-discord">Discord: phoenixacmo</p>
+        </div>
+      </div>
+
+
+      <div class="staff-card">
+        <div class="staff-img">
+          <img src="images/staff-noah.png" alt="Noah">
+        </div>
+        <h4>Noah</h4>
+        <span>Builder · Helper · Programmer</span>
+
+        <div class="staff-overlay">
+          <h4>Noah</h4>
+          <span class="overlay-role">Builder · Helper</span>
+          <div class="overlay-divider"></div>
+          <p class="overlay-discord">Discord: without_desire</p>
+        </div>
+        <div class="staff-socials">
+          <a href="https://x.com/NightNoahh" target="_blank">Twitter</a>
+        </div> 
+      </div>
+
+      <div class="staff-card">
+        <div class="staff-img">
+          <img src="images/staff-cat.png" alt="Cat">
+        </div>
+        <h4>CatLatino</h4>
+        <span>Builder · T-Mod</span>
+
+        <div class="staff-overlay">
+          <h4>Cat</h4>
+          <span class="overlay-role">Builder · T-Mod</span>
+          <div class="overlay-divider"></div>
+          <p class="overlay-discord">Discord: catlatino</p>
+        </div>
+      </div>
+
+      <div class="staff-card">
+        <div class="staff-img">
+          <img src="images/staff-faku.png" alt="Faku">
+        </div>
+        <h4>Faku</h4>
+        <span>Builder · T-Mod</span>
+
+        <div class="staff-overlay">
+          <h4>Faku</h4>
+          <span class="overlay-role">Builder · T-Mod</span>
+          <div class="overlay-divider"></div>
+          <p class="overlay-discord">Discord: alexj26_</p>
+        </div>
+      </div>
+
+      <div class="staff-card">
+        <div class="staff-img">
+          <img src="images/staff-bonomelo.png" alt="Bonomelo">
+        </div>
+        <h4>Bonomelo</h4>
+        <span>Builder · Helper</span>
+
+        <div class="staff-overlay">
+          <h4>Bonomelo</h4>
+          <span class="overlay-role">Builder · Helper</span>
+          <div class="overlay-divider"></div>
+          <p class="overlay-discord">Discord: bonomeloxd</p>
+        </div>
+      </div>
+
+      <div class="staff-card">
+        <div class="staff-img">
+          <img src="images\project-soon.jpg" alt="Luisportero">
+        </div>
+        <h4>Luisportero</h4>
+        <span>Admin</span>
+        <div class="staff-overlay">
+          <h4>Luisportero</h4>
+          <span class="overlay-role">Admin</span>
+          <div class="overlay-divider"></div>
+          <p class="overlay-discord">Discord: facherito_50699</p>
+        </div>
+      </div>
+
+      <div class="staff-card">
+        <div class="staff-img">
+          <img src="images/staff-javi.png" alt="Javi">
+        </div>
+        <h4>Javi</h4>
+        <span>Builder · Helper</span>
+
+        <div class="staff-overlay">
+          <h4>Bonomelo</h4>
+          <span class="overlay-role">Builder · Helper</span>
+          <div class="overlay-divider"></div>
+          <p class="overlay-discord">Discord: javizk_1</p>
+        </div>
+        <div class="staff-socials">
+          <a href="https://www.tiktok.com/@javizk_1" target="_blank">TikTok</a>
+        </div>        
+      </div>
+
+      <div class="staff-card">
+        <div class="staff-img">
+          <img src="images/staff-nahidtoilet.png" alt="Nahidtoilet">
+        </div>
+        <h4>Nahidtoilet</h4>
+        <span>Builder · Helper</span>
+
+        <div class="staff-overlay">
+          <h4>Nahidtoilet</h4>
+          <span class="overlay-role">Builder · Helper</span>
+          <div class="overlay-divider"></div>
+          <p class="overlay-discord">Discord: oswaldo3344_08837</p>
+        </div>
+      </div>
+
+      <div class="staff-card">
+        <div class="staff-img">
+          <img src="images\project-soon.jpg" alt="Matexd">
+        </div>
+        <h4>Matexd</h4>
+        <span>Admin</span>
+
+        <div class="staff-overlay">
+          <h4>Matexd</h4>
+          <span class="overlay-role">Admin</span>
+          <div class="overlay-divider"></div>
+          <p class="overlay-discord">Discord: matexd2092_70102</p>
+        </div>
+      </div>
+
+      <div class="staff-card">
+        <div class="staff-img">
+          <img src="images/staff-loslaisse.png" alt="loslaisse">
+        </div>
+        <h4>Loslaisse</h4>
+        <span>Builder · Helper</span>
+
+        <div class="staff-overlay">
+          <h4>Loslaisse</h4>
+          <span class="overlay-role">Builder · Helper</span>
+          <div class="overlay-divider"></div>
+          <p class="overlay-discord">Discord: loslaisse</p>
+        </div>
+      </div>
+
+      <div class="staff-card">
+        <div class="staff-img">
+          <img src="images\project-soon.jpg" alt="4zBrice">
+        </div>
+        <h4>4zBrice</h4>
+        <span>Builder · Helper</span>
+
+        <div class="staff-overlay">
+          <h4>4zBrice</h4>
+          <span class="overlay-role">Builder · Helper</span>
+          <div class="overlay-divider"></div>
+          <p class="overlay-discord">Discord: 4zbrais</p>
+        </div>
+      </div>
+
+      <div class="staff-card">
+        <div class="staff-img">
+          <img src="images\project-soon.jpg" alt="Neomar">
+        </div>
+        <h4>Neomar</h4>
+        <span>Builder · Helper</span>
+
+        <div class="staff-overlay">
+          <h4>Neomar</h4>
+          <span class="overlay-role">Builder · Helper</span>
+          <div class="overlay-divider"></div>
+          <p class="overlay-discord">Discord: neomar39</p>
+        </div>
+      </div>
+
+      <div class="staff-card">
+        <div class="staff-img">
+          <img src="images\project-soon.jpg" alt="Kiohip">
+        </div>
+        <h4>Kiohip</h4>
+        <span>Builder · Helper</span>
+
+        <div class="staff-overlay">
+          <h4>Neomar</h4>
+          <span class="overlay-role">Builder · Helper</span>
+          <div class="overlay-divider"></div>
+          <p class="overlay-discord">Discord: kiohip</p>
+        </div>
+      </div>
+
+
+      <div class="staff-card">
+        <div class="staff-img">
+          <img src="images\project-soon.jpg" alt="QuistChain">
+        </div>
+        <h4>QuistChain</h4>
+        <span>Renderista</span>
+
+        <div class="staff-overlay">
+          <h4>QuistChain</h4>
+          <span class="overlay-role">Renderista</span>
+          <div class="overlay-divider"></div>
+          <p class="overlay-discord">Discord: quitschain</p>
+        </div>
+      </div>
+
+      <div class="staff-card">
+        <div class="staff-img">
+          <img src="images\project-soon.jpg" alt="Yenndo">
+        </div>
+        <h4>Yenndo</h4>
+        <span>Renderista</span>
+
+        <div class="staff-overlay">
+          <h4>Yenndo</h4>
+          <span class="overlay-role">Renderista</span>
+          <div class="overlay-divider"></div>
+          <p class="overlay-discord">Discord: yenndo134</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+    </div>
+  </section>
+  <section class="cta-section animated-bg">
+    <div class="cta-content">
+      <h2>¿Quieres formar parte de Otter Studio?</h2>
+      <p>
+        Únete a nuestra comunidad y descubre cómo creamos experiencias
+        únicas dentro de Minecraft.
+      </p>
+
+      <div class="cta-buttons">
+        <a href="https://discord.gg/U3AH2tRuUY" target="_blank" class="cta-btn primary">
+          Unirse al Discord
+        </a>
+        <a href="index.html#projects" class="cta-btn secondary">
+          Ver proyectos
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-container">
+
+
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="logo-circle">
+            <img src="images/logo-otter.png" alt="Otter Studio Logo">
+          </div>
+          <span>Otter Studio</span>
+        </div>
+      </div>
+
+
+      <div class="footer-links">
+
+        <div class="footer-column">
+          <h4>Empresa</h4>
+          <ul>
+            <li><a href="sobre-nosotros.html">Acerca de</a></li>
+            <li><a href="index.html#sponsors">Colaboradores</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Comunidad</h4>
+          <ul>
+            <li>
+              <a href="https://discord.gg/U3AH2tRuUY" target="_blank">
+                Discord
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="politicadeprivacidad.html">Política de privacidad</a></li>
+            <li><a href="terminos-condiciones.html">Términos y condiciones</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 Otter Studio S.L. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const nav = document.querySelector(".nav");
+    menuToggle.addEventListener("click", () => { nav.classList.toggle("active"); });
+  </script>
+</body>
+</html>

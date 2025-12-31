@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Términos y Condiciones | Otter Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <meta name="description" content="Términos y Condiciones de uso de Otter Studio. Normas y responsabilidades de la comunidad.">
+<style>
+
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+
+    body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #111;
+    background: #fff;
+    }
+    html {
+    scroll-behavior: smooth;
+    }
+    /* HEADER */
+    .header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #000;
+      z-index: 1000;
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .header-content {
+      display: grid;
+      grid-template-columns: 1fr auto 2fr;
+      align-items: center;
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #fff;
+      text-decoration: none;
+      justify-self: center;
+    }
+    .logo-circle {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo-circle img { 
+      width: 38px; 
+      height: 38px; 
+      object-fit: contain; 
+      border-radius: 50%;
+    }
+    .brand-text { 
+      font-size: 1.2rem; 
+      font-weight: 600; 
+      letter-spacing: 1px; 
+    }
+    .nav {
+      grid-column: 3;
+      justify-self: end;
+    }
+
+    .nav a { 
+      margin-left: 30px; 
+      color: #fff; 
+      text-decoration: none; 
+      opacity: 0.8; 
+      transition: opacity 0.3s ease; 
+      position: relative;
+    }
+    .nav a:hover { 
+      opacity: 1; 
+    }
+    .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: #fff;
+      transition: width 0.3s ease;
+    }
+
+    .nav a:hover::after {
+      width: 100%;
+    }
+
+    .menu-toggle { 
+      display: none; 
+      font-size: 1.8rem; 
+      color: #fff; 
+      cursor: pointer; 
+    }
+
+    @media(max-width:768px){
+      .header-content { grid-template-columns: auto 1fr auto; }
+      .nav { position: fixed; top:70px; left:0; width:100%; background:#000; flex-direction:column; align-items:center; display:none; padding:30px 0; }
+      .nav.active { display:flex; }
+      .nav a { margin:15px 0; }
+      .menu-toggle { display:block; }
+    }
+    .dark-page {
+    background: #0b0b0b;
+    color: #fff;
+    }
+
+    .legal-page {
+    padding-top: 180px;  /* espacio header */
+    padding-bottom: 120px;
+    }
+
+    .legal-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+    }
+    .legal-content h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    }
+
+    .legal-updated {
+    opacity: 0.6;
+    font-size: 0.9rem;
+    margin-bottom: 60px;
+    }
+
+    .legal-content section {
+    margin-bottom: 50px;
+    }
+
+    .legal-content h2 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    }
+
+    .legal-content p {
+    line-height: 1.7;
+    opacity: 0.9;
+    }
+
+    .legal-content ul {
+    margin-top: 15px;
+    padding-left: 20px;
+    }
+
+    .legal-content li {
+    margin-bottom: 8px;
+    opacity: 0.85;
+    }
+    .footer {
+      background: #0c0c0c;
+      color: #aaa;
+      padding: 80px 0 30px;
+    }
+
+    /* CONTENEDOR */
+    .footer-container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.2fr 2fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    /* BRAND IZQUIERDA */
+    .footer-brand p {
+      max-width: 360px;
+      line-height: 1.6;
+      margin-top: 20px;
+      font-size: 0.95rem;
+    }
+
+    /* LOGO */
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-logo img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+    }
+
+    .footer-logo span {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+
+    /* LINKS DERECHA */
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .footer-column h4 {
+      color: #fff;
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-column li {
+      margin-bottom: 12px;
+    }
+
+    .footer-column a {
+      text-decoration: none;
+      color: #aaa;
+      transition: color 0.3s ease;
+    }
+
+    .footer-column a:hover {
+      color: #ff9900;
+    }
+
+    /* COPYRIGHT */
+    .footer-bottom {
+      margin-top: 60px;
+      padding-top: 25px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #666;
+      border-top: 1px solid #222;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .footer-logo {
+        justify-content: center;
+      }
+
+      .footer-brand p {
+        margin: 20px auto 0;
+      }
+
+      .footer-links {
+        grid-template-columns: 1fr;
+        margin-top: 40px;
+      }
+      .content-section {
+        padding: 60px 0;
+      }
+      .page-hero h1 {
+        font-size: 2.2rem;
+      }
+    }
+
+    /* LOGO FOOTER IGUAL AL HEADER */
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-logo .logo-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #fff;           /* círculo blanco */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer-logo .logo-circle img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: #fff;      
+      padding: 6px;
+      border-radius: 50%;  
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    /* TEXTO */
+    .footer-logo span {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+    .content-section {
+      animation: fadeUp 0.8s ease both;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    } 
+</style>
+</head>
+
+<body class="dark-page">
+
+  <header class="header">
+    <div class="container header-content">
+      <a href="index.html" class="brand">
+        <div class="logo-circle"><img src="images/logo-otter.png" alt="Otter Studio"></div>
+        <span class="brand-text">Otter Studio</span>
+      </a>
+      <nav class="nav">
+        <a href="Pindex.html#about">Nosotros</a>
+        <a href="index.html#projects">Proyectos</a>
+        <a href="index.html#contact">Comunidad</a>
+      </nav>
+      <div class="menu-toggle" id="menuToggle">☰</div>
+    </div>
+  </header>
+
+  <main class="legal-page">
+
+    <div class="container legal-content">
+
+      <h1>Términos y Condiciones</h1>
+      <p class="legal-updated">Última actualización: 2025</p>
+
+      <section>
+        <h2>1. Aceptación de los términos</h2>
+        <p>
+          Al acceder o participar en cualquier servicio, plataforma o comunidad
+          gestionada por Otter Studio, aceptas cumplir con los presentes
+          Términos y Condiciones. Si no estás de acuerdo con ellos, deberás
+          abstenerte de utilizar nuestros servicios.
+        </p>
+      </section>
+
+      <section>
+        <h2>2. Naturaleza del proyecto</h2>
+        <p>
+          Otter Studio es un estudio creativo enfocado en la creación de eventos,
+          experiencias y proyectos personalizados dentro del videojuego Minecraft.
+          No estamos afiliados oficialmente a Mojang Studios ni a Microsoft.
+        </p>
+      </section>
+
+      <section>
+        <h2>3. Uso de la comunidad</h2>
+        <p>
+          Los usuarios que participen en nuestras comunidades (por ejemplo, Discord)
+          deberán mantener una conducta respetuosa. Queda prohibido:
+        </p>
+        <ul>
+          <li>El acoso, insultos o discriminación de cualquier tipo.</li>
+          <li>El uso de lenguaje ofensivo o inapropiado.</li>
+          <li>El spam, publicidad no autorizada o contenido malicioso.</li>
+          <li>La suplantación de identidad.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>4. Participación en eventos</h2>
+        <p>
+          La participación en eventos organizados por Otter Studio es voluntaria.
+          Nos reservamos el derecho de modificar, suspender o cancelar eventos
+          por razones técnicas, organizativas o de seguridad.
+        </p>
+      </section>
+
+      <section>
+        <h2>5. Propiedad intelectual</h2>
+        <p>
+          Todo el contenido creado por Otter Studio, incluyendo mapas, diseños,
+          renders, textos y material audiovisual, es propiedad del estudio o
+          de sus respectivos autores. No está permitida su reproducción sin
+          autorización expresa.
+        </p>
+      </section>
+
+      <section>
+        <h2>6. Contenido generado por usuarios</h2>
+        <p>
+          El contenido compartido por los usuarios dentro de nuestras plataformas
+          sigue siendo propiedad de sus autores. Sin embargo, al compartirlo,
+          otorgas a Otter Studio permiso para mostrarlo dentro del contexto de
+          la comunidad o eventos.
+        </p>
+      </section>
+
+      <section>
+        <h2>7. Limitación de responsabilidad</h2>
+        <p>
+          Otter Studio no se hace responsable por pérdidas de datos, interrupciones
+          del servicio o daños derivados del uso de plataformas externas
+          necesarias para el funcionamiento de la comunidad.
+        </p>
+      </section>
+
+      <section>
+        <h2>8. Sanciones</h2>
+        <p>
+          El incumplimiento de estos Términos y Condiciones puede resultar en
+          advertencias, sanciones temporales o expulsión permanente de la
+          comunidad, según la gravedad del caso.
+        </p>
+      </section>
+
+      <section>
+        <h2>9. Modificaciones</h2>
+        <p>
+          Otter Studio se reserva el derecho de modificar estos Términos y
+          Condiciones en cualquier momento. Las modificaciones serán publicadas
+          en esta página.
+        </p>
+      </section>
+
+      <section>
+        <h2>10. Contacto</h2>
+        <p>
+          Para cualquier consulta relacionada con estos Términos y Condiciones,
+          puedes comunicarte con nosotros a través de nuestros canales oficiales
+          en Discord.
+        </p>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="logo-circle">
+            <img src="images/logo-otter.png" alt="Otter Studio Logo">
+          </div>
+          <span>Otter Studio</span>
+        </div>
+      </div>
+
+      <div class="footer-links">
+
+        <div class="footer-column">
+          <h4>Empresa</h4>
+          <ul>
+            <li><a href="sobre-nosotros.html">Acerca de</a></li>
+            <li><a href="index.html#sponsors">Colaboradores</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Comunidad</h4>
+          <ul>
+            <li>
+              <a href="https://discord.gg/U3AH2tRuUY" target="_blank">
+                Discord
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="politicadeprivacidad.html">Política de privacidad</a></li>
+            <li><a href="terminos-condiciones.html">Términos y condiciones</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 Otter Studio S.L. Todos los derechos reservados.
+    </div>
+  </footer>
+
+</body>
+</html>
