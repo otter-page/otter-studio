@@ -117,6 +117,31 @@
       .nav a { margin:15px 0; }
       .menu-toggle { display:block; }
     }
+    @media (max-width: 768px) {
+
+    .header-content {
+      grid-template-columns: auto 1fr auto;
+    }
+
+      /* Logo centrado de verdad */
+      .logo-text {
+        justify-self: center;
+        pointer-events: none; /* evita toques accidentales */
+      }
+
+      /* Botón menú a la derecha del todo */
+      .menu-toggle {
+        justify-self: end;
+        margin-right: 10px;
+        font-size: 1.8rem;
+        cursor: pointer;
+      }
+
+      /* El logo clickeable (circulito) sigue funcionando */
+      .logo-left {
+        justify-self: start;
+      }
+    }
     .dark-page {
     background: #0b0b0b;
     color: #fff;
