@@ -533,13 +533,11 @@ html {
     grid-template-columns: auto 1fr auto;
   }
 
-      /* Logo centrado de verdad */
   .logo-text {
         justify-self: center;
-        pointer-events: none; /* evita toques accidentales */
+        pointer-events: none; 
       }
 
-      /* Botón menú a la derecha del todo */
       .menu-toggle {
         justify-self: end;
         margin-right: 10px;
@@ -547,7 +545,6 @@ html {
         cursor: pointer;
       }
 
-      /* El logo clickeable (circulito) sigue funcionando */
       .logo-left {
         justify-self: start;
       }
@@ -862,7 +859,7 @@ html {
 .btn:active {
   transform: scale(0.97);
 }
-/* BOTÓN HAMBURGUESA */
+
 .menu-toggle {
   display: none;
   font-size: 1.8rem;
@@ -904,14 +901,14 @@ html {
     margin: auto;
   }
 }
-/* ===== FOOTER ===== */
+
 .footer {
   background: #0c0c0c;
   color: #aaa;
   padding: 80px 0 30px;
 }
 
-/* CONTENEDOR */
+
 .footer-container {
   width: 90%;
   max-width: 1200px;
@@ -922,7 +919,7 @@ html {
   align-items: start;
 }
 
-/* BRAND IZQUIERDA */
+
 .footer-brand p {
   max-width: 360px;
   line-height: 1.6;
@@ -930,7 +927,7 @@ html {
   font-size: 0.95rem;
 }
 
-/* LOGO */
+
 .footer-logo {
   display: flex;
   align-items: center;
@@ -950,7 +947,7 @@ html {
   letter-spacing: 1px;
 }
 
-/* LINKS DERECHA */
+
 .footer-links {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -982,7 +979,6 @@ html {
   color: #ff9900;
 }
 
-/* COPYRIGHT */
 .footer-bottom {
   margin-top: 60px;
   padding-top: 25px;
@@ -992,7 +988,6 @@ html {
   border-top: 1px solid #222;
 }
 
-/* RESPONSIVE */
 @media (max-width: 900px) {
   .footer-container {
     grid-template-columns: 1fr;
@@ -1012,7 +1007,7 @@ html {
     margin-top: 40px;
   }
 }
-/* LOGO FOOTER IGUAL AL HEADER */
+
 .footer-logo {
   display: flex;
   align-items: center;
@@ -1023,7 +1018,7 @@ html {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: #fff;           /* círculo blanco */
+  background: #fff;    
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1040,7 +1035,7 @@ html {
   box-shadow: 0 4px 12px rgba(0,0,0,0.4);
 }
 
-/* TEXTO */
+
 .footer-logo span {
   font-size: 1.4rem;
   font-weight: 600;
@@ -1049,7 +1044,7 @@ html {
 }
 @media (max-width: 768px) {
 
-  /* fija altura real del slider */
+
   .projects-slider {
     height: 520px;
   }
@@ -1059,7 +1054,7 @@ html {
     padding: 0 20px;
   }
 
-  /* limita cualquier media */
+
   .project-slide img,
   .project-slide video {
     max-height: 260px;
@@ -1067,7 +1062,7 @@ html {
     object-fit: cover;
   }
 
-  /* SOLO PULPODEATH */
+ 
   .project-slide.pulpodeath img {
     object-fit: contain;
     width: auto;
@@ -1187,20 +1182,22 @@ html {
         <div class="sponsor-card premium">
 
 
-          <img src="images/elyonhost.jpg" alt="ElyonHost Oficial">
+          <img src="images/host.png" alt="ElyonHost Oficial">
 
   
-          <div class="sponsor-name">ElyonHost Oficial</div>
+          <div class="sponsor-name">Lunat Hosting</div>
 
 
           <div class="sponsor-overlay">
-            <h3>ElyonHost Oficial</h3>
+            <h3>Lunat Hosting</h3>
             <p>
-              Hosting profesional para servidores de Minecraft,
-              alto rendimiento y soporte especializado.
+              Hosting de Minecraft con infraestructura AMD EPYC e Intel Xeon, 99.9% de uptime garantizado y soporte 24/7 en español.
             </p>
-            <a href="https://discord.gg/d264YWFDp" target="_blank" class="btn sponsor-btn">
+            <a href="https://discord.gg/wZ5Au9U9JE" target="_blank" class="btn sponsor-btn">
               Unirse al Discord
+            </a>
+                <a href="https://lunathosting.com/" target="_blank" class="btn sponsor-btn">
+              Página Oficial
             </a>
           </div>
 
@@ -1502,6 +1499,7 @@ html {
   <a href="#top" class="back-to-top">↑</a>
 </body>
 </html>
+
 
 
 
